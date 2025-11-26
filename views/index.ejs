@@ -4,55 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinephile</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="./output.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="./output.css" rel="stylesheet" />
   </head>
   <body class="bg-black">
     <header>
       <nav class="flex items-center justify-between h-15 bg-black">
-        <h1 id="logo" class="text-white font-bold text-3xl ml-3"><span class="text-red-600">Cine</span>phile</h1>
+        <h1 id="logo" class="text-white font-bold text-3xl ml-3">
+          <span class="text-red-600">Cine</span>phile
+        </h1>
         <button
           id="menu-btn"
           class="md:hidden text-white text-2xl focus:outline-none p-4"
         >
           &#9776;
         </button>
-        <div class="hidden md:flex justify-around w-1/3">
+        <form
+          action="/search"
+          method="get"
+          class="hidden md:flex justify-around w-1/3"
+        >
           <input
+            name="query"
             type="text"
             placeholder="Search"
             id="search-form"
             class="hidden md:block bg-black border border-red-950 w-full h-10 p-2 pl-5 rounded-full text-white"
-          ></input>
+            required
+          />
           <button
-          type="submit"
-          id="search-btn"
-          class="mx-5 bg-red-600 p-2 px-3 rounded-full">
-          	<i class="fa fa-search"></i>
+            type="submit"
+            id="search-btn"
+            class="mx-5 bg-red-600 p-2 px-3 rounded-full"
+          >
+            <i class="fa fa-search"></i>
           </button>
-        </div>
-        <ul class="hidden md:flex text-white gap-5 m-3 pr-6">
-          <li><a>Home</a></li>
-          <li><a>Movies</a></li>
-          <li><a>TV Shows</a></li>
-        </ul>
+        </form>
+        <button
+          id="ai"
+          class="hidden md:flex text-white gap-5 m-3 pr-6 bg-red-600 text-center p-3 rounded-xl"
+        >
+          AI Recommend
+        </button>
       </nav>
     </header>
-    <h1 id="heading" class="text-white my-5 font-bold text-3xl text-center">Popular Movies & Shows</h1>
+    <h1 id="heading" class="text-white my-5 font-bold text-3xl text-center">
+      <%=type%>
+    </h1>
     <div id="main" class="flex justify-around flex-wrap">
       <%movies.forEach(movies => { %>
-        <div id="card" class="group relative m-3  inline-block w-[270px] h-[380px] rounded-xl">
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bg-gray-950/50 text-white w-[270px] h-[340px] p-2">
-            <%= movies.overview%>
-          </div>
-          <img class="w-full h-[340px] rounded-xl" src="https://image.tmdb.org/t/p/w500/<%=movies.poster_path%>"/>
-          <div class="flex justify-between items-center pr-2">
-            <h2 class="text-white font-bold m-2"><%= movies.title%></h2>
-            <h2 class="text-white font-bold bg-gray-700 p-1 rounded-xl"><%= movies.vote_average.toFixed(1)%></h2>
-          </div>
-        </div>   
+      <div
+        id="card"
+        class="group relative m-3 inline-block w-[270px] h-[380px] rounded-xl"
+      >
+        <div
+          class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bg-gray-950/50 text-white w-[270px] h-[340px] p-2"
+        >
+          <%= movies.overview%>
+        </div>
+        <img
+          class="w-full h-[340px] rounded-xl"
+          src="https://image.tmdb.org/t/p/w500/<%=movies.poster_path%>"
+        />
+        <div class="flex justify-between items-center pr-2">
+          <h2 class="text-white font-bold m-2"><%= movies.title%></h2>
+          <h2 class="text-white font-bold bg-gray-700 p-1 rounded-xl">
+            <%= movies.vote_average.toFixed(1)%>
+          </h2>
+        </div>
+      </div>
       <% }) %>
     </div>
-    <script src="./views/main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>

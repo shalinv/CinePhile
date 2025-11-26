@@ -16,12 +16,35 @@ app.get("/", (req, res) => {
   axios
     .get(url)
     .then((response) => {
-      res.render("index", { movies: response.data.results });
+      res.render("index", {
+        movies: response.data.results,
+        type: "Latest Movies",
+      });
     })
     .catch((err) => {
       console.log(err);
       res.render("index", { movies: [] });
     });
+});
+
+app.get("/search", (req, res) => {
+  const query = req.query.query;
+  const url = `https://api.themoviedb.org/3/search/movie?include_adult=false&query=${query}&api_key=${process.env.API_KEY}`;
+  axios
+    .get(url)
+    .then((response) => {
+      res.render("index", {
+        movies: response.data.results,
+        type: `Showing results for ${query}`,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get("/recommend", (req, res) => {
+  res.render("recommend");
 });
 
 app.listen(PORT, () => {

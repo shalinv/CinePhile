@@ -19,20 +19,21 @@ menu.addEventListener("click", () => {
             <li class="py-3"><a>Movies</a></li>
             <li class="py-3"><a>TV Shows</a></li>
             </ul>
-            <div class="flex justify-center">
+            <form action="/search" method="get" class="flex justify-center">
               <input
+                name="query"
                 type="text"
                 placeholder="Search"
                 id="search-form"
                 class=" md:block bg-black border-3 border border-red-950 w-full h-10 p-2 pl-5 rounded-full text-white"
-              ></input>
+              />
               <button
               type="submit"
               id="search-btn"
               class="mx-5 bg-white p-2 px-3 rounded-full">
                 <i class="fa fa-search"></i>
               </button>
-            </div>
+            </form>
         </div>
     `;
     document.querySelector("header").appendChild(dropmenu);
@@ -98,9 +99,10 @@ searchButton.addEventListener("click", () => {
 
 const logo = document.getElementById("logo");
 logo.addEventListener("click", () => {
-  const heading = document.querySelector("#heading");
-  heading.innerText = "Popular Movies & Shows";
-  const container = document.getElementById("main");
-  container.innerHTML = "";
-  getResult(API_URL);
+  window.location.href = `/`;
+});
+
+const ai = document.getElementById("ai");
+ai.addEventListener("click", () => {
+  window.location.href = `/recommend`;
 });
