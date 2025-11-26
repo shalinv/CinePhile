@@ -10,10 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.14",
-    "express": "^5.1.0",
-    "tailwindcss": "^4.1.14"
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.17"
   }
 }
