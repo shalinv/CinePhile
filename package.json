@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/genai": "^1.30.0",
     "@tailwindcss/cli": "^4.1.14",
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
