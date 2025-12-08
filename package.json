@@ -1,17 +1,23 @@
 {
   "name": "cinephile",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.30.0",
+    "@tailwindcss/cli": "^4.1.14",
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
   },
   "devDependencies": {
-    "vite": "^7.0.0"
-  },
-  "dependencies": {
-    "tailwindcss": "^4.1.11"
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.17"
   }
 }
